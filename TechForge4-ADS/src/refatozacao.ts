@@ -1,22 +1,27 @@
 import { Consumidor } from "./model/Consumidor.js";
 
-// Array para armazenar os consumidores
 const listaConsumidores: Consumidor[] = [];
 
-// --- EXECUÇÃO DE TESTE ---
 listaConsumidores.push(new Consumidor("Ana Silva", 30, "ana@email.com"));
 listaConsumidores.push(new Consumidor("Carlos Souza", 22, "carlos@email.com"));
 listaConsumidores.push(new Consumidor("Mariana Lima", 45, "mariana@email.com"));
-listaConsumidores.push(new Consumidor("Roberto Alves", 19, "roberto@email.com"));
-listaConsumidores.push(new Consumidor("Fernanda Dias", 33, "fernanda@email.com"));
+listaConsumidores.push(
+  new Consumidor("Roberto Alves", 19, "roberto@email.com"),
+);
+listaConsumidores.push(
+  new Consumidor("Fernanda Dias", 33, "fernanda@email.com"),
+);
 
 console.log("=== LISTA DE CONSUMIDORES ===");
-listaConsumidores.forEach(c => console.log(c.apresentar()));
+listaConsumidores.forEach((c) => console.log(c.apresentar()));
 
 console.log("\n=== ANÁLISE ESTATÍSTICA ===");
-console.log(`Média das Idades: ${Consumidor.calcularMediaIdade(listaConsumidores).toFixed(1)} anos`);
+console.log(
+  `Média das Idades: ${Consumidor.calcularMediaIdade(listaConsumidores).toFixed(1)} anos`,
+);
 
-const { maisVelho, maisNovo } = Consumidor.obterExtremosIdade(listaConsumidores);
+const { maisVelho, maisNovo } =
+  Consumidor.obterExtremosIdade(listaConsumidores);
 if (maisVelho != undefined && maisNovo != undefined) {
   console.log(`Mais Velho(a): ${maisVelho.nome} (${maisVelho.idade} anos)`);
   console.log(`Mais Novo(a): ${maisNovo.nome} (${maisNovo.idade} anos)`);
